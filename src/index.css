@@ -34,15 +34,7 @@
   margin-bottom: 10px;
   position: relative;
 }
-/* .input_wrapper::before {
-  content: "";
-  width: 100%;
-  height: 1px;
-  background-color: #776b5d;
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-} */
+
 .divaider {
   border-top: 1px dashed #776b5d;
   width: 100%;
@@ -62,4 +54,9 @@
   border: none;
   height: 100%;
   width: 40px;
+}
+
+.todo_list {
+  width: 100%;
+  overflow-y: auto;
 }
