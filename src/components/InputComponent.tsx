@@ -1,4 +1,5 @@
 import { FC, useRef } from "react";
+import { GrAdd } from "react-icons/gr";
 
 interface Props {
   onAddTodo: (text: string) => void;
@@ -10,14 +11,15 @@ const InputComponent: FC<Props> = ({ onAddTodo }) => {
   return (
     <div className="input_wrapper">
       <input type="text" ref={inputRef} placeholder="todo..." />
-      <button
+
+      <div
         onClick={() => {
-          if (inputRef.current) onAddTodo(inputRef.current?.value);
+          if (inputRef.current?.value) onAddTodo(inputRef.current?.value);
         }}
         className="add_button"
       >
-        Add
-      </button>
+        <GrAdd width={10} height={10} />
+      </div>
     </div>
   );
 };
