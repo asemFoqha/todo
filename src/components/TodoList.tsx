@@ -1,20 +1,13 @@
-import { FC } from "react";
-import ITodo from "../interfaces/ITodo";
+import { useContext } from "react";
+import { TodoContext } from "../context/todoContext";
 import TodoItem from "./TodoItem";
 
-interface Props {
-  todos: ITodo[];
-}
-
-const TodoList: FC<Props> = ({ todos }) => {
+const TodoList = () => {
+  const { todos } = useContext(TodoContext);
   return (
     <div className="todo_list">
       {todos.map((todo) => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          onFinishTodo={(test) => console.log(test)}
-        />
+        <TodoItem key={todo.id} todo={todo} />
       ))}
       {/* create the todo item */}
     </div>
