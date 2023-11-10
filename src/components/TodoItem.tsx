@@ -17,6 +17,12 @@ const TodoItem: FC<Props> = ({ todo }) => {
     updatedTodos[todoIndex].isDone = !updatedTodos[todoIndex].isDone;
     setTodos(updatedTodos);
   };
+
+  const handleDeleteTodo = () => {
+    const updatedTodos = todos.filter((item) => item.id !== todo.id);
+    setTodos(updatedTodos);
+  };
+
   return (
     <div className={`todo ${todo.isDone && "is_done"}`}>
       <div className={`todo__text-wrapper`}>
@@ -29,7 +35,7 @@ const TodoItem: FC<Props> = ({ todo }) => {
         />
         <label htmlFor={"" + todo.id}>{todo.text}</label>
       </div>
-      <BsFillTrashFill width={30} height={30} />
+      <BsFillTrashFill onClick={handleDeleteTodo} width={30} height={30} />
     </div>
   );
 };
