@@ -3,6 +3,7 @@ import { BsFillTrashFill } from "react-icons/bs";
 
 import ITodo from "../interfaces/ITodo";
 import { TodoContext } from "../context/todoContext";
+import { saveTodos } from "../services/saveToLocalhost";
 
 interface Props {
   todo: ITodo;
@@ -16,11 +17,13 @@ const TodoItem: FC<Props> = ({ todo }) => {
     const updatedTodos = [...todos];
     updatedTodos[todoIndex].isDone = !updatedTodos[todoIndex].isDone;
     setTodos(updatedTodos);
+    saveTodos(updatedTodos);
   };
 
   const handleDeleteTodo = () => {
     const updatedTodos = todos.filter((item) => item.id !== todo.id);
     setTodos(updatedTodos);
+    saveTodos(updatedTodos);
   };
 
   return (

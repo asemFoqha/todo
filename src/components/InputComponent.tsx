@@ -13,6 +13,7 @@ const InputComponent: FC<Props> = ({ onAddTodo }) => {
       onAddTodo(inputRef.current?.value);
       inputRef.current.value = "";
     }
+
   };
 
   return (
