@@ -1,8 +1,8 @@
-import TodoBox from "./components/TodoBox";
+import TodoBox from './components/TodoBox';
 
 function App() {
   return (
-    <div className="container">
+    <div className='container'>
       <TodoBox />
     </div>
   );

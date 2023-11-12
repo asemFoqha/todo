@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import InputComponent from "./InputComponent";
-import TodoList from "./TodoList";
-import ITodo from "../interfaces/ITodo";
-import { TodoContext } from "../context/todoContext";
-import { getTodos, saveTodos } from "../services/saveToLocalhost";
+import { useEffect, useState } from 'react';
+import InputComponent from './InputComponent';
+import TodoList from './TodoList';
+import ITodo from '../interfaces/ITodo';
+import { TodoContext } from '../context/todoContext';
+import { getTodos, saveTodos } from '../services/saveToLocalhost';
+import Summary from './Summary';
 
 const TodoBox = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
@@ -27,10 +28,11 @@ const TodoBox = () => {
 
   return (
     <TodoContext.Provider value={{ todos, setTodos }}>
-      <div className="todo_box">
+      <Summary todos={todos} />
+      <div className='todo_box'>
         <h1>Todo</h1>
         <InputComponent onAddTodo={(text) => handleAddingTodo(text)} />
-        <div className="divaider" />
+        <div className='divaider' />
         <TodoList />
       </div>
     </TodoContext.Provider>
